@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>TA Profile Information </title>
+        <meta name="description" content="Form example">
+        <meta name="author" content="CSC309">
+        
+        <link rel="stylesheet" href="css/styles.css?v=1.0" type="text/css">
+        
+        <script src="scripts/jquery-3.0.0.min.js" defer type="text/javascript"></script>
+        <script src="scripts/scripts.js" defer type="text/javascript"></script>
+    </head>
+    <body>
+        
+        <header>
+            <h1>TA Application Form</h1>
+            <h2>Personal Information</h2>
+        </header>
+        
+        <!-- TAs are identifed by their student number.  In a real application
+            the user would be given the option of updating their information.
+        -->
+        <form action="/signup" method="post">
+            
+            <div class="form_element">
+                <label id="stunumField">
+                    <span class="label">Student Number:</span>
+                    <!-- Create a REQ'D text input here with name "stunum" -->
+                    <!-- Use the HTML5 validation "pattern" attribute to validate as a 9-digit number -->
+                    <span class="error"><%- errors.error_stunum %></span>
+                </label>
+            </div>
+            
+            <!-- The given and family names do not need an special validation 
+                beyond ensuring that they are filled in. Use the HTML5
+                required attribute to force the user to enter something in 
+                these fields.
+            -->
+            <div class="form_element">
+                <label id="givenField">
+                    <span class="label">Given Name:</span> 
+                    <!-- Create a REQ'D text input here with name "givenname" -->
+                </label>
+            </div>
+            <div class="form_element">
+                <label id="familyField">
+                    <span class="label">Family Name:</span>
+                    <!-- Create a REQ'D text input here with name "familyname" -->
+                </label>
+            </div>
+            
+            <!-- Use HTML5 validation to ensure a 10-digit phone number is
+                entered. You will need to come up with a regular expression that
+                permits the following valid phone numbers: 4167778888,
+                (416)777-8888, (416)7778888, 416-777-8888. Try not to annoy
+                your users by forcing them into typing a phone number in a strict format.
+             -->
+            <div class="form_element">
+                <label id="phoneField">
+                    <span class="label">Phone Number:</span> 
+                    <!-- Create a REQ'D text input here with name "phone" -->
+                    <!-- Use the HTML5 validation "pattern" attribute to validate -->
+                    <span class="error"><%- errors.error_phone %></span>
+                </label>
+            </div>
+            <div class="form_element">
+                <label id="emailField">
+                    <span class="label">Email Address:</span>
+                    <!-- Create a REQ'D text input here with name "email" -->
+                    <span class="error"><%- errors.error_email %></span>
+                </label>
+            </div>
+            
+            <!-- Firefox doesn't support the "date" type, Chrome does. -->
+            <!-- Date format is yyyy-mm-dd. Use the "placeholder" attribute to tell the user. -->
+            <div class="form_element">
+                <label id="birthdayField">
+                    <span class="label">Birthday:</span>
+                    <!-- Create a REQ'D text input here with name "birthday" -->
+                    <!-- Date format is yyyy-mm-dd. Use the "placeholder" attribute to tell the user. -->
+                    <span class="error"><%- errors.error_birthday %></span>
+                </label>
+            </div>
+            
+            <!-- From a user experience point of view, this next field is 
+                interesting because it assumes that the default is opt in.
+                No additional validation necessary here.
+            -->
+            <div class="form_element">
+                I <select name="grantaccess">
+                    <option value="DO">DO</option>
+                    <option value="DO NOT">DO NOT</option>
+                </select> 
+                grant permission for the TA coordinator to access my academic history on ROSI.
+            </div>
+            
+            <fieldset>
+                <legend>Student Status at UofT</legend>
+                
+                <!-- Advanced: Add Department dropdown here. -->
+                
+                <!-- Check out how this renders in modern browsers. -->
+                <label for="number">
+                    <span class="label">Year in Program </span> 
+                    <input type="number" min="0" max="15" required="">
+                </label>
+            </fieldset>
+            
+            
+            <!-- Create a textarea named "info". Not required, no validation. -->
+            
+            
+            <div class="form_element">
+                <input id="SubmitButton" type="submit" value="Submit">
+            </div>
+        </form>
+    </body>
+</html>
