@@ -30,15 +30,15 @@ app.use(expressValidator({
         
         isStuNum: function(value) {
             // Validation here:
-            return value;
+            return false;
         },
         isPhone: function(value) {
             // Validation here:
-            return value;
+            return false;
         },
         isBirthday: function(value) {
             // Validation here:
-            return value;
+            return false;
         }
     }
 })); // This line must be immediately after express.bodyParser()!
